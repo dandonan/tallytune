@@ -1,4 +1,4 @@
---native_auido = false
+//--native_auido = false
 var mysql = require("mysql");
 
 function users(Public, Private) {
@@ -6,20 +6,21 @@ function users(Public, Private) {
     this.Private = Private;
 }
 
-var resumeFunction = spotify.useNodjsAudio(handleAudio);
+/*var resumeFunction = spotify.useNodjsAudio(handleAudio);
 function handleAudio(err, buffer) {
   if(err) throw err;
   var needMoreData = true;
   // write buffer somewhere, set needMoreData
   // if necessary call resumeFunction();
   return needMoreData;
-}
+}*/
 
 //First you need to craete a connection to the database
 var con = mysql.createConnection({
     host: "localhost",
     user: "tesla",
-    password: "*****"
+    password: "tesla",
+    database: "tallyData"
 });
 
 con.connect(function(err) {
@@ -30,20 +31,30 @@ con.connect(function(err) {
     console.log('Connection to the database established');
 });
 
-con.end(function(err){
+con.query('select * from partyData',function(err,rows){
+    if (err) throw err;
+
+    console.log('Data received from Db:\n');
+    console.log(rows);
+});
+
+
+
+/*con.end(function(err){
     //The connection is terminated gracefully
     //Ensures all previously enqueued quereis are still
     //before sending a COM_QUIT packed to the MySql server.
-});
+});*/
 
-var options = {
+/*var options = {
     settingsFolder: 'settings',
     cacheFolder: 'cache',
     traceFile: 'trace.txt' //default is empty,
     appkeyFile: 'spotify_appkey.key' //required
-}
-var spotify = require('spotify')(options);
+}*/
 
+//var spotify = require('spotify')(options);
+/*
 playlist.on({
     playlistRenamed: function(err, playlist),
     tracksAdded: function(err, playlist, track[], position),
@@ -68,14 +79,14 @@ spotify.on({
 
 spotify.player.on({
     endOfTrack: function()
-});
+});*/
 
-console.log(spotify.remeberedUser);
+/*console.log(spotify.remeberedUser);
 
 spotify.login('myusername','mypassword', true, false);
 
-playlistContainer RootList
-user sessionUser
+//playlistContainer RootList;
+//user sessionUser;
 
 function printTrack(track) {
 	console.log(track);
@@ -106,12 +117,12 @@ function makePid()
 function HostNew(){
     var id = makePid();
     var partyPlay = RootList(1);
-    console.log("Playing First Playlist in Library:" partyPlay.name);
+    //console.log("Playing First Playlist in Library:" partyPlay.name);
     if(party == true)play();
     else pause();
 }
 
-function userId(){
+/*function userId(){
     var text = ""
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -119,17 +130,17 @@ function userId(){
         text += possible.charAt(Math.floor(Math.random() * possilbe.length));
     }
     return text;
-}
+}*/
 
-function publicId(){
+/*function publicId(){
     var PubName = //input from website
     var User = new users(PubName, userId());
 
-}
+}*/
 
 //player player //may or may not need this line, can't remeber why I put it here in the first place
 
-function playSongs(playlist){
+/*function playSongs(playlist){
     var skip = 0; //variable to determine skip
     var attendence; //total number of people logged into party
     var skipNeed = attendance/2 + 1;
@@ -146,12 +157,12 @@ function playSongs(playlist){
     		void play(track CurrentPlay);
     	}
     }
-}
+}*/
 
-var endOfTrack = function() {
+/*var endOfTrack = function() {
     console.log('End of track reached');
-};
-
+};*/
+/*
 function checkTheRest(database){
     var attendance = ;//total guests at party
     var Threshold = ;//percent of partygoes with song in top playlist for song to be added into party list
@@ -160,7 +171,7 @@ function checkTheRest(database){
     while(database->users){
         //think of a way to do this nonesense at some point maybe, if we feel like it
     }
-}
+}*/
 
 
 		

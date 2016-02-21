@@ -1,0 +1,20 @@
+{
+  "name": "tallytune",
+  "version": "1.0.0",
+  "description": "This is TallyTune. May God have his mercy on our souls and protect us on this mission from hell.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/danyedidovich/tallytune"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "restler": "^3.4.0"
+  }
+}
