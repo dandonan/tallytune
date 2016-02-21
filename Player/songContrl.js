@@ -53,9 +53,36 @@ on getCurrentlyPlayingTrack()
 	end tell
 end getCurrentlyPlayingTrack
 */
+var CurrentParty;
 
-//function skipChecker
-//function skipper
+function skipNeed(){
+	var partyID = CurrentParty;
+	var attendance = con.query("select userData.partyID from userData where userData.partyID = " + partyID,function(err,rows){
+		if (err) throw err;
+		return rows;
+	});
+	var sheeple = attendance.length;
+	var voteNeed = sheeple/2 + 1;
+	return voteNeed;
+};
+
+function skipCheck(voteNeed){
+	var partyID = CurrentParty;
+	var wantSkip = con.query("select userData.partyID,userData.wantSkip from userData where userData.partyID = " + partyID + "and userData.wantSkip = true",function(err,rows){
+		if (err) throw err;
+		return rows;
+	});
+	if(wantSkip > voteNeed) skipper();
+};
+
+function skipper(){
+	var script = heredoc(function(){/*
+		tell application "Spotify"
+			next track
+		end tell
+	*/})
+}
+
 function songData(){
 	var SongInfo = "";
 	var script1 = heredoc(function(){/*
@@ -112,6 +139,7 @@ function songData(){
 
 function HostNew(){
     var id = makePid();
+    partyID = id;
  	//add inital play functionality
 }
 
