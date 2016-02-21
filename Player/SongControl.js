@@ -1,4 +1,5 @@
 --native_auido = false
+var mysql = require("mysql");
 
 function users(Public, Private) {
     this.Public = Public;
@@ -13,6 +14,27 @@ function handleAudio(err, buffer) {
   // if necessary call resumeFunction();
   return needMoreData;
 }
+
+//First you need to craete a connection to the database
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "tesla",
+    password: "*****"
+});
+
+con.connect(function(err) {
+    if(err){
+        console.log('Error connectiong to the database');
+        return;
+    }
+    console.log('Connection to the database established');
+});
+
+con.end(function(err){
+    //The connection is terminated gracefully
+    //Ensures all previously enqueued quereis are still
+    //before sending a COM_QUIT packed to the MySql server.
+});
 
 var options = {
     settingsFolder: 'settings',
@@ -66,7 +88,8 @@ function waitForTrack(playlist) {
     console.log('Track is loaded: ' + track.isLoaded);
     spotify.waitForLoaded([track], printTrack);
 }
-var playlist = spotify.playlistContainer.getPlaylists()[14];
+//initalize the first playlist in the host's library to be the playlist played
+var playlist = spotify.playlistContainer.getPlaylists()[1];
 spotify.waitForLoaded([playlist], waitForTrack);
 
 function makePid()
@@ -104,28 +127,40 @@ function publicId(){
 
 }
 
-player player
+//player player //may or may not need this line, can't remeber why I put it here in the first place
 
-int skip = 0; //variable to determine skip
-int attendence; //total number of people logged into party
-int skipNeed = attendance/2 + 1;
-int PlayLength = numTracks();
-int CurrentPlay = 1;
-while(CurrentPlay < PlayLength){
-    PlayLength = numTracks();
-	if(skip entered){
-		skip += 1;
-	}
-	if(skip > skipNeed){
-		stop();
-		CurrentPlay += 1;
-		void play(track CurrentPlay);
-	}
+function playSongs(playlist){
+    var skip = 0; //variable to determine skip
+    var attendence; //total number of people logged into party
+    var skipNeed = attendance/2 + 1;
+    var PlayLength = numTracks();
+    var CurrentPlay = 1;
+    while(CurrentPlay < PlayLength){
+        PlayLength = numTracks();
+    	if(skip entered){
+    		skip += 1;
+    	}
+    	if(skip > skipNeed){
+    		stop();
+    		CurrentPlay += 1;
+    		void play(track CurrentPlay);
+    	}
+    }
 }
 
 var endOfTrack = function() {
     console.log('End of track reached');
 };
+
+function checkTheRest(database){
+    var attendance = ;//total guests at party
+    var Threshold = ;//percent of partygoes with song in top playlist for song to be added into party list
+    //set by the host....THIS IS A REACHY REACHY GOAL IF EVERYTHING AND I MEAN EVERYTHING IS WORKING
+    var songs[2048];
+    while(database->users){
+        //think of a way to do this nonesense at some point maybe, if we feel like it
+    }
+}
 
 
 		
