@@ -1,0 +1,716 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'libspotify' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose install initial load of /Users/danielyedidovich/git/tallytune/Player/package.json
+6 warn package.json tallytune@1.0.0 No README data
+7 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/express/package.json
+8 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/mysql/package.json
+9 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/querystring/package.json
+10 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/request/package.json
+11 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/restler/package.json
+12 verbose installManyTop reading scoped package data from /Users/danielyedidovich/git/tallytune/Player/node_modules/spotify/package.json
+13 info package.json querystring@0.2.0 querystring is also the name of a node core module.
+14 info package.json querystring@0.2.0 No license field.
+15 info package.json spotify@0.3.0 No license field.
+16 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/package.json
+17 silly cache add args [ 'libspotify', null ]
+18 verbose cache add spec libspotify
+19 silly cache add parsed spec { raw: 'libspotify',
+19 silly cache add   scope: null,
+19 silly cache add   name: 'libspotify',
+19 silly cache add   rawSpec: '',
+19 silly cache add   spec: '*',
+19 silly cache add   type: 'range' }
+20 silly addNamed libspotify@*
+21 verbose addNamed "*" is a valid semver range for libspotify
+22 silly addNameRange { name: 'libspotify', range: '*', hasData: false }
+23 silly mapToRegistry name libspotify
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/libspotify
+27 verbose addNameRange registry:https://registry.npmjs.org/libspotify not in flight; fetching
+28 verbose request uri https://registry.npmjs.org/libspotify
+29 verbose request no auth needed
+30 info attempt registry request try #1 at 03:42:21
+31 verbose request id f5a1a7d43ce6d708
+32 verbose etag "DGU9X7W0TP25UFX2XPDYCKC0B"
+33 http request GET https://registry.npmjs.org/libspotify
+34 http 304 https://registry.npmjs.org/libspotify
+35 silly get cb [ 304,
+35 silly get   { date: 'Sun, 21 Feb 2016 10:42:21 GMT',
+35 silly get     via: '1.1 varnish',
+35 silly get     'cache-control': 'max-age=300',
+35 silly get     etag: '"DGU9X7W0TP25UFX2XPDYCKC0B"',
+35 silly get     age: '68',
+35 silly get     connection: 'keep-alive',
+35 silly get     'x-served-by': 'cache-ord1723-ORD',
+35 silly get     'x-cache': 'HIT',
+35 silly get     'x-cache-hits': '1',
+35 silly get     'x-timer': 'S1456051341.441110,VS0,VE0',
+35 silly get     vary: 'Accept' } ]
+36 verbose etag https://registry.npmjs.org/libspotify from cache
+37 verbose get saving libspotify to /Users/danielyedidovich/.npm/registry.npmjs.org/libspotify/.cache.json
+38 silly addNameRange number 2 { name: 'libspotify', range: '*', hasData: true }
+39 silly addNameRange versions [ 'libspotify', [ '0.0.1', '0.1.0', '0.2.1', '0.2.2' ] ]
+40 silly addNamed libspotify@0.2.2
+41 verbose addNamed "0.2.2" is a plain semver version for libspotify
+42 silly cache afterAdd libspotify@0.2.2
+43 verbose afterAdd /Users/danielyedidovich/.npm/libspotify/0.2.2/package/package.json not in flight; writing
+44 verbose afterAdd /Users/danielyedidovich/.npm/libspotify/0.2.2/package/package.json written
+45 silly install resolved [ { name: 'libspotify',
+45 silly install resolved     description: 'Node bindings to the libspotify C library',
+45 silly install resolved     author: { name: 'Florent Jaby', email: 'florent.jaby@gmail.com' },
+45 silly install resolved     keywords: [ 'spotify', 'libspotify', 'bindings', 'play', 'player', 'music' ],
+45 silly install resolved     version: '0.2.2',
+45 silly install resolved     maintainers: [ [Object] ],
+45 silly install resolved     homepage: 'http://projects.flo.by/node-libspotify/',
+45 silly install resolved     bugs: { url: 'https://github.com/floby/node-libspotify/issues' },
+45 silly install resolved     repository:
+45 silly install resolved      { type: 'git',
+45 silly install resolved        url: 'git+https://github.com/Floby/node-libspotify.git' },
+45 silly install resolved     engines: { node: '>0.10.0' },
+45 silly install resolved     dependencies: { bindings: '~1.1.1', i: '~0.3', format: '0.1', backoff: '~2.0' },
+45 silly install resolved     devDependencies: { nodeunit: '~0.7', trycatch: '*', colors: '*' },
+45 silly install resolved     scripts:
+45 silly install resolved      { install: 'node-gyp configure build',
+45 silly install resolved        pretest: 'rm -rf /tmp/node-libspotify 2>/dev/null ; node-gyp clean >/dev/null && node-gyp configure --debug  >/dev/null && node-gyp build >/dev/null',
+45 silly install resolved        test: 'nodeunit test/test-*' },
+45 silly install resolved     main: 'lib/libspotify.js',
+45 silly install resolved     readme: '[![Build Status](https://travis-ci.org/Floby/node-libspotify.png?branch=master)](https://travis-ci.org/Floby/node-libspotify?branch=master)\n\nnode-libspotify\n===============\n\nNode bindings for the libspotify C library\n\n_This is still very alpha, but you can already play around I suppose_\n\nInstall & test\n--------------\n\nPlease note that you must have the libspotify library installed on your system\nyou can get it from [here](https://developer.spotify.com/technologies/libspotify/).\n\nYou must provide your own spotify application key, because I\'m not giving mine away :]\nYou also must provide valid credentials for a spotify account.\n\nOnce you cloned the repository run `npm install` then test the module with `npm test`.\n\nMain objectives\n---------------\n\nAs there are already a number of spotify bindings or modules for the REST API, the main goal\nof this module is not to give access to the artist and tracks catalog. It\'s main purpose is\nto allow for playback of the tracks. The idea is to expose a `Player` object in which the user\ncan load tracks, play them, and get decompressed audio data from it (as provided by the libspotify C library).\n\nWhat the user can do with the audio stream is up to him/her. As it is raw PCM data, it is easy to pipe to\nsome kind of encoder (like gstreamer) in order to broadcast music or stream it to a web user (as long as it complies\nwith the Spotify terms of service ;).\n\nThe user can also choose to play the song locally with a node module like [speaker](http://github.com/TooTallNate/node-speaker)\nor pipe the audio data to another process like [aplay](http://linux.die.net/man/1/aplay).\n\n\nThe main goal is now achieved. Audio data is exposed as the Player object which behaves like a readable stream.\n\nSnippet\n-------\n\nHere is a code snippet of how to play a track from spotify\n\n```js\n\nvar sp = require(\'../lib/libspotify\');\nvar cred = require(\'../spotify_key/passwd\');\nvar spawn = require(\'child_process\').spawn;\n\nvar session = new sp.Session({\n    applicationKey: __dirname + \'/../spotify_key/spotify_appkey.key\'\n});\nsession.login(cred.login, cred.password);\nsession.once(\'login\', function(err) {\n    if(err) this.emit(\'error\', err);\n\n    var search = new sp.Search(\'artist:"rick astley" track:"never gonna give you up"\');\n    search.trackCount = 1; // we\'re only interested in the first result;\n    search.execute();\n    search.once(\'ready\', function() {\n        if(!search.tracks.length) {\n            console.error(\'there is no track to play :[\');\n            session.logout();\n        }\n\n        var track = search.tracks[0];\n        var player = session.getPlayer();\n        player.load(track);\n        player.play();\n\n        // linux\n        var play = spawn(\'aplay\', [\'-c\', 2, \'-f\', \'S16_LE\', \'-r\', \'44100\']);\n        // osx with `brew install sox`\n        var play = spawn(\'play\', [\'-r\', 44100, \'-b\', 16, \'-L\', \'-c\', 2, \'-e\', \'signed-integer\', \'-t\', \'raw\', \'-\']);\n\n        player.pipe(play.stdin);\n\n        console.error(\'playing track. end in %s\', track.humanDuration);\n        player.on(\'data\', function(buffer) {\n            // buffer.length\n            // buffer.rate\n            // buffer.channels\n            // 16bit samples\n        });\n        player.once(\'track-end\', function() {\n            console.error(\'track ended\');\n            player.stop();\n            session.close();\n        });\n    });\n});\n\n```\n\n\nTODO\n====\n\n* Bind to the rest of the API...\n\n\n\nCredits\n=======\n\nThanks to [IainCole](https://github.com/IainCole/node-libspotify) for his help on the playlist subsystem.\nThanks to [LinusU](https://github.com/LinusU) and [swissmanu](https://github.com/swissmanu) for their help on album cover retreivals\n',
+45 silly install resolved     readmeFilename: 'README.md',
+45 silly install resolved     _id: 'libspotify@0.2.2',
+45 silly install resolved     dist:
+45 silly install resolved      { shasum: '558100d001c3d2d3e9c51b866e19b993e5463b7f',
+45 silly install resolved        tarball: 'http://registry.npmjs.org/libspotify/-/libspotify-0.2.2.tgz' },
+45 silly install resolved     _from: 'libspotify@*',
+45 silly install resolved     _npmVersion: '1.2.32',
+45 silly install resolved     _npmUser: { name: 'floby', email: 'florent.jaby@gmail.com' },
+45 silly install resolved     directories: {},
+45 silly install resolved     _shasum: '558100d001c3d2d3e9c51b866e19b993e5463b7f',
+45 silly install resolved     _resolved: 'https://registry.npmjs.org/libspotify/-/libspotify-0.2.2.tgz' } ]
+46 info install libspotify@0.2.2 into /Users/danielyedidovich/git/tallytune/Player
+47 info installOne libspotify@0.2.2
+48 verbose installOne of libspotify to /Users/danielyedidovich/git/tallytune/Player not in flight; installing
+49 verbose lock using /Users/danielyedidovich/.npm/_locks/libspotify-e457c85bada4eac0.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+50 silly install write writing libspotify 0.2.2 to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+51 verbose unbuild node_modules/libspotify
+52 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify is being purged from base /Users/danielyedidovich/git/tallytune/Player
+53 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+54 verbose tar unpack /Users/danielyedidovich/.npm/libspotify/0.2.2/package.tgz
+55 verbose tar unpacking to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+56 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify is being purged
+57 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+58 silly gunzTarPerm modes [ '755', '644' ]
+59 silly gunzTarPerm extractEntry package.json
+60 silly gunzTarPerm extractEntry .npmignore
+61 silly gunzTarPerm extractEntry README.md
+62 silly gunzTarPerm extractEntry api.md
+63 silly gunzTarPerm extractEntry binding.gyp
+64 silly gunzTarPerm extractEntry .travis.yml
+65 silly gunzTarPerm extractEntry lib/Album.js
+66 silly gunzTarPerm extractEntry lib/Artist.js
+67 silly gunzTarPerm extractEntry lib/Player.js
+68 silly gunzTarPerm extractEntry lib/Playlist.js
+69 silly gunzTarPerm extractEntry lib/PlaylistContainer.js
+70 silly gunzTarPerm extractEntry lib/Search.js
+71 silly gunzTarPerm extractEntry lib/Session.js
+72 silly gunzTarPerm extractEntry lib/SpObject.js
+73 silly gunzTarPerm extractEntry lib/Track.js
+74 silly gunzTarPerm extractEntry lib/libspotify.js
+75 silly gunzTarPerm extractEntry test/test-000-a-check.js
+76 silly gunzTarPerm extractEntry test/test-020-search-02-process.js
+77 silly gunzTarPerm extractEntry test/test-030-track.js
+78 silly gunzTarPerm extractEntry test/test-031-album.js
+79 silly gunzTarPerm extractEntry test/test-020-search-01-create.js
+80 silly gunzTarPerm extractEntry test/test-050-player01-end-of-track.js
+81 silly gunzTarPerm extractEntry test/test-060-link.js
+82 silly gunzTarPerm extractEntry test/test-065-link-types.js
+83 silly gunzTarPerm extractEntry test/test-066-link-from-objects.js
+84 silly gunzTarPerm extractEntry test/test-070-backoff-ready.js
+85 silly gunzTarPerm extractEntry test/test-010-session02-login.js
+86 silly gunzTarPerm extractEntry test/test-080-playlist.js
+87 silly gunzTarPerm extractEntry test/test-010-session01-instance.js
+88 silly gunzTarPerm extractEntry test/test-999-cleanup.js
+89 silly gunzTarPerm extractEntry test/test-000-config.js
+90 silly gunzTarPerm extractEntry test/util.js
+91 silly gunzTarPerm extractEntry test/test-050-player00-track.js
+92 silly gunzTarPerm extractEntry scripts/travis-install.sh
+93 silly gunzTarPerm extractEntry scripts/travis-setup.sh
+94 silly gunzTarPerm extractEntry src/player.cc
+95 silly gunzTarPerm extractEntry src/album.cc
+96 silly gunzTarPerm extractEntry src/audio.cc
+97 silly gunzTarPerm extractEntry src/audio.h
+98 silly gunzTarPerm extractEntry src/binding.cc
+99 silly gunzTarPerm extractEntry src/common.h
+100 silly gunzTarPerm extractEntry src/link.cc
+101 silly gunzTarPerm extractEntry src/artist.cc
+102 silly gunzTarPerm extractEntry src/playlist.cc
+103 silly gunzTarPerm extractEntry src/playlistcallbacks.cc
+104 silly gunzTarPerm extractEntry src/queue.h
+105 silly gunzTarPerm extractEntry src/search.cc
+106 silly gunzTarPerm extractEntry src/session.cc
+107 silly gunzTarPerm extractEntry src/track.cc
+108 silly gunzTarPerm extractEntry example/play.js
+109 silly gunzTarPerm extractEntry example/speakers.js
+110 silly gunzTarPerm extractEntry example/write.js
+111 verbose write writing to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/package.json
+112 info preinstall libspotify@0.2.2
+113 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/package.json
+114 silly prepareForInstallMany adding bindings@~1.1.1 from libspotify dependencies
+115 silly prepareForInstallMany adding i@~0.3 from libspotify dependencies
+116 silly prepareForInstallMany adding format@0.1 from libspotify dependencies
+117 silly prepareForInstallMany adding backoff@~2.0 from libspotify dependencies
+118 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/package.json
+119 silly cache add args [ 'bindings@~1.1.1', null ]
+120 verbose cache add spec bindings@~1.1.1
+121 silly cache add args [ 'i@~0.3', null ]
+122 verbose cache add spec i@~0.3
+123 silly cache add parsed spec { raw: 'bindings@~1.1.1',
+123 silly cache add   scope: null,
+123 silly cache add   name: 'bindings',
+123 silly cache add   rawSpec: '~1.1.1',
+123 silly cache add   spec: '>=1.1.1 <1.2.0',
+123 silly cache add   type: 'range' }
+124 silly addNamed bindings@>=1.1.1 <1.2.0
+125 verbose addNamed ">=1.1.1 <1.2.0" is a valid semver range for bindings
+126 silly addNameRange { name: 'bindings', range: '>=1.1.1 <1.2.0', hasData: false }
+127 silly mapToRegistry name bindings
+128 silly mapToRegistry using default registry
+129 silly mapToRegistry registry https://registry.npmjs.org/
+130 silly mapToRegistry uri https://registry.npmjs.org/bindings
+131 verbose addNameRange registry:https://registry.npmjs.org/bindings not in flight; fetching
+132 silly cache add parsed spec { raw: 'i@~0.3',
+132 silly cache add   scope: null,
+132 silly cache add   name: 'i',
+132 silly cache add   rawSpec: '~0.3',
+132 silly cache add   spec: '>=0.3.0 <0.4.0',
+132 silly cache add   type: 'range' }
+133 silly addNamed i@>=0.3.0 <0.4.0
+134 verbose addNamed ">=0.3.0 <0.4.0" is a valid semver range for i
+135 silly addNameRange { name: 'i', range: '>=0.3.0 <0.4.0', hasData: false }
+136 silly mapToRegistry name i
+137 silly mapToRegistry using default registry
+138 silly mapToRegistry registry https://registry.npmjs.org/
+139 silly mapToRegistry uri https://registry.npmjs.org/i
+140 verbose addNameRange registry:https://registry.npmjs.org/i not in flight; fetching
+141 silly cache add args [ 'format@0.1', null ]
+142 verbose cache add spec format@0.1
+143 silly cache add parsed spec { raw: 'format@0.1',
+143 silly cache add   scope: null,
+143 silly cache add   name: 'format',
+143 silly cache add   rawSpec: '0.1',
+143 silly cache add   spec: '>=0.1.0 <0.2.0',
+143 silly cache add   type: 'range' }
+144 silly addNamed format@>=0.1.0 <0.2.0
+145 verbose addNamed ">=0.1.0 <0.2.0" is a valid semver range for format
+146 silly addNameRange { name: 'format', range: '>=0.1.0 <0.2.0', hasData: false }
+147 silly mapToRegistry name format
+148 silly mapToRegistry using default registry
+149 silly mapToRegistry registry https://registry.npmjs.org/
+150 silly mapToRegistry uri https://registry.npmjs.org/format
+151 verbose addNameRange registry:https://registry.npmjs.org/format not in flight; fetching
+152 silly cache add args [ 'backoff@~2.0', null ]
+153 verbose cache add spec backoff@~2.0
+154 silly cache add parsed spec { raw: 'backoff@~2.0',
+154 silly cache add   scope: null,
+154 silly cache add   name: 'backoff',
+154 silly cache add   rawSpec: '~2.0',
+154 silly cache add   spec: '>=2.0.0 <2.1.0',
+154 silly cache add   type: 'range' }
+155 silly addNamed backoff@>=2.0.0 <2.1.0
+156 verbose addNamed ">=2.0.0 <2.1.0" is a valid semver range for backoff
+157 silly addNameRange { name: 'backoff', range: '>=2.0.0 <2.1.0', hasData: false }
+158 silly mapToRegistry name backoff
+159 silly mapToRegistry using default registry
+160 silly mapToRegistry registry https://registry.npmjs.org/
+161 silly mapToRegistry uri https://registry.npmjs.org/backoff
+162 verbose addNameRange registry:https://registry.npmjs.org/backoff not in flight; fetching
+163 verbose request uri https://registry.npmjs.org/i
+164 verbose request no auth needed
+165 info attempt registry request try #1 at 03:42:21
+166 verbose etag "DDKTFE3V49ODVQ63ULW1XY27C"
+167 http request GET https://registry.npmjs.org/i
+168 verbose request uri https://registry.npmjs.org/bindings
+169 verbose request no auth needed
+170 info attempt registry request try #1 at 03:42:21
+171 verbose etag "1LLBF9OH58DLBEL4629U6032D"
+172 http request GET https://registry.npmjs.org/bindings
+173 verbose request uri https://registry.npmjs.org/format
+174 verbose request no auth needed
+175 info attempt registry request try #1 at 03:42:21
+176 verbose etag "9NAP9G0NHDECF6HAFL3WU8LP2"
+177 http request GET https://registry.npmjs.org/format
+178 verbose request uri https://registry.npmjs.org/backoff
+179 verbose request no auth needed
+180 info attempt registry request try #1 at 03:42:21
+181 verbose etag "3DWJN8AN1FK49ZJHDVN1VK1C5"
+182 http request GET https://registry.npmjs.org/backoff
+183 http 304 https://registry.npmjs.org/i
+184 silly get cb [ 304,
+184 silly get   { date: 'Sun, 21 Feb 2016 10:42:21 GMT',
+184 silly get     via: '1.1 varnish',
+184 silly get     'cache-control': 'max-age=300',
+184 silly get     etag: '"DDKTFE3V49ODVQ63ULW1XY27C"',
+184 silly get     age: '172',
+184 silly get     connection: 'keep-alive',
+184 silly get     'x-served-by': 'cache-ord1726-ORD',
+184 silly get     'x-cache': 'HIT',
+184 silly get     'x-cache-hits': '2',
+184 silly get     'x-timer': 'S1456051341.704925,VS0,VE0',
+184 silly get     vary: 'Accept' } ]
+185 verbose etag https://registry.npmjs.org/i from cache
+186 verbose get saving i to /Users/danielyedidovich/.npm/registry.npmjs.org/i/.cache.json
+187 http 304 https://registry.npmjs.org/bindings
+188 silly get cb [ 304,
+188 silly get   { date: 'Sun, 21 Feb 2016 10:42:21 GMT',
+188 silly get     via: '1.1 varnish',
+188 silly get     'cache-control': 'max-age=300',
+188 silly get     etag: '"1LLBF9OH58DLBEL4629U6032D"',
+188 silly get     age: '231',
+188 silly get     connection: 'keep-alive',
+188 silly get     'x-served-by': 'cache-ord1733-ORD',
+188 silly get     'x-cache': 'HIT',
+188 silly get     'x-cache-hits': '1',
+188 silly get     'x-timer': 'S1456051341.708398,VS0,VE0',
+188 silly get     vary: 'Accept' } ]
+189 verbose etag https://registry.npmjs.org/bindings from cache
+190 verbose get saving bindings to /Users/danielyedidovich/.npm/registry.npmjs.org/bindings/.cache.json
+191 silly addNameRange number 2 { name: 'bindings', range: '>=1.1.1 <1.2.0', hasData: true }
+192 silly addNameRange versions [ 'bindings',
+192 silly addNameRange   [ '0.0.1',
+192 silly addNameRange     '0.1.0',
+192 silly addNameRange     '0.1.1',
+192 silly addNameRange     '0.2.0',
+192 silly addNameRange     '0.2.1',
+192 silly addNameRange     '0.2.2',
+192 silly addNameRange     '0.2.3',
+192 silly addNameRange     '0.2.4',
+192 silly addNameRange     '0.3.0',
+192 silly addNameRange     '0.4.0',
+192 silly addNameRange     '1.0.0',
+192 silly addNameRange     '1.1.0',
+192 silly addNameRange     '1.1.1',
+192 silly addNameRange     '1.2.0',
+192 silly addNameRange     '1.2.1' ] ]
+193 silly addNamed bindings@1.1.1
+194 verbose addNamed "1.1.1" is a plain semver version for bindings
+195 silly addNameRange number 2 { name: 'i', range: '>=0.3.0 <0.4.0', hasData: true }
+196 silly addNameRange versions [ 'i', [ '0.2.0', '0.3.0', '0.3.1', '0.3.3', '0.3.4' ] ]
+197 silly addNamed i@0.3.4
+198 verbose addNamed "0.3.4" is a plain semver version for i
+199 silly cache afterAdd bindings@1.1.1
+200 verbose afterAdd /Users/danielyedidovich/.npm/bindings/1.1.1/package/package.json not in flight; writing
+201 silly cache afterAdd i@0.3.4
+202 verbose afterAdd /Users/danielyedidovich/.npm/i/0.3.4/package/package.json not in flight; writing
+203 http 304 https://registry.npmjs.org/backoff
+204 silly get cb [ 304,
+204 silly get   { date: 'Sun, 21 Feb 2016 10:42:21 GMT',
+204 silly get     via: '1.1 varnish',
+204 silly get     'cache-control': 'max-age=300',
+204 silly get     etag: '"3DWJN8AN1FK49ZJHDVN1VK1C5"',
+204 silly get     age: '68',
+204 silly get     connection: 'keep-alive',
+204 silly get     'x-served-by': 'cache-ord1726-ORD',
+204 silly get     'x-cache': 'HIT',
+204 silly get     'x-cache-hits': '2',
+204 silly get     'x-timer': 'S1456051341.716207,VS0,VE0',
+204 silly get     vary: 'Accept' } ]
+205 verbose etag https://registry.npmjs.org/backoff from cache
+206 verbose get saving backoff to /Users/danielyedidovich/.npm/registry.npmjs.org/backoff/.cache.json
+207 http 304 https://registry.npmjs.org/format
+208 silly get cb [ 304,
+208 silly get   { date: 'Sun, 21 Feb 2016 10:42:21 GMT',
+208 silly get     via: '1.1 varnish',
+208 silly get     'cache-control': 'max-age=300',
+208 silly get     etag: '"9NAP9G0NHDECF6HAFL3WU8LP2"',
+208 silly get     age: '68',
+208 silly get     connection: 'keep-alive',
+208 silly get     'x-served-by': 'cache-ord1720-ORD',
+208 silly get     'x-cache': 'HIT',
+208 silly get     'x-cache-hits': '1',
+208 silly get     'x-timer': 'S1456051341.718110,VS0,VE0',
+208 silly get     vary: 'Accept' } ]
+209 verbose etag https://registry.npmjs.org/format from cache
+210 verbose get saving format to /Users/danielyedidovich/.npm/registry.npmjs.org/format/.cache.json
+211 verbose afterAdd /Users/danielyedidovich/.npm/bindings/1.1.1/package/package.json written
+212 verbose afterAdd /Users/danielyedidovich/.npm/i/0.3.4/package/package.json written
+213 silly addNameRange number 2 { name: 'backoff', range: '>=2.0.0 <2.1.0', hasData: true }
+214 silly addNameRange versions [ 'backoff',
+214 silly addNameRange   [ '0.0.1',
+214 silly addNameRange     '0.0.2',
+214 silly addNameRange     '0.0.3',
+214 silly addNameRange     '0.1.0',
+214 silly addNameRange     '0.2.0',
+214 silly addNameRange     '0.2.1',
+214 silly addNameRange     '0.3.0',
+214 silly addNameRange     '1.0.0',
+214 silly addNameRange     '1.1.0',
+214 silly addNameRange     '1.2.0',
+214 silly addNameRange     '1.2.1',
+214 silly addNameRange     '2.0.0',
+214 silly addNameRange     '2.1.0',
+214 silly addNameRange     '2.2.0',
+214 silly addNameRange     '2.3.0',
+214 silly addNameRange     '2.4.0',
+214 silly addNameRange     '2.4.1' ] ]
+215 silly addNamed backoff@2.0.0
+216 verbose addNamed "2.0.0" is a plain semver version for backoff
+217 silly addNameRange number 2 { name: 'format', range: '>=0.1.0 <0.2.0', hasData: true }
+218 silly addNameRange versions [ 'format',
+218 silly addNameRange   [ '0.1.0',
+218 silly addNameRange     '0.1.1',
+218 silly addNameRange     '0.1.2',
+218 silly addNameRange     '0.1.3',
+218 silly addNameRange     '0.1.4',
+218 silly addNameRange     '0.2.0',
+218 silly addNameRange     '0.2.1',
+218 silly addNameRange     '0.2.2' ] ]
+219 silly addNamed format@0.1.4
+220 verbose addNamed "0.1.4" is a plain semver version for format
+221 silly cache afterAdd backoff@2.0.0
+222 verbose afterAdd /Users/danielyedidovich/.npm/backoff/2.0.0/package/package.json not in flight; writing
+223 silly cache afterAdd format@0.1.4
+224 verbose afterAdd /Users/danielyedidovich/.npm/format/0.1.4/package/package.json not in flight; writing
+225 verbose afterAdd /Users/danielyedidovich/.npm/backoff/2.0.0/package/package.json written
+226 verbose afterAdd /Users/danielyedidovich/.npm/format/0.1.4/package/package.json written
+227 silly install resolved [ { name: 'bindings',
+227 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+227 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+227 silly install resolved     version: '1.1.1',
+227 silly install resolved     author:
+227 silly install resolved      { name: 'Nathan Rajlich',
+227 silly install resolved        email: 'nathan@tootallnate.net',
+227 silly install resolved        url: 'http://tootallnate.net' },
+227 silly install resolved     repository:
+227 silly install resolved      { type: 'git',
+227 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+227 silly install resolved     main: './bindings.js',
+227 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+227 silly install resolved     _id: 'bindings@1.1.1',
+227 silly install resolved     dist:
+227 silly install resolved      { shasum: '951f7ae010302ffc50b265b124032017ed2bf6f3',
+227 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.1.1.tgz' },
+227 silly install resolved     _from: 'bindings@>=1.1.1 <1.2.0',
+227 silly install resolved     _npmVersion: '1.3.2',
+227 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+227 silly install resolved     maintainers: [ [Object], [Object] ],
+227 silly install resolved     directories: {},
+227 silly install resolved     _shasum: '951f7ae010302ffc50b265b124032017ed2bf6f3',
+227 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.1.1.tgz',
+227 silly install resolved     readme: 'ERROR: No README data found!',
+227 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings#readme' },
+227 silly install resolved   { name: 'i',
+227 silly install resolved     version: '0.3.4',
+227 silly install resolved     author:
+227 silly install resolved      { name: 'Pavan Kumar Sunkara',
+227 silly install resolved        email: 'pavan.sss1991@gmail.com',
+227 silly install resolved        url: 'pksunkara.github.com' },
+227 silly install resolved     description: 'custom inflections for nodejs',
+227 silly install resolved     main: './lib/inflect',
+227 silly install resolved     repository: { type: 'git', url: 'git://github.com/pksunkara/inflect.git' },
+227 silly install resolved     keywords:
+227 silly install resolved      [ 'singular',
+227 silly install resolved        'plural',
+227 silly install resolved        'camelize',
+227 silly install resolved        'underscore',
+227 silly install resolved        'dasherize',
+227 silly install resolved        'demodulize',
+227 silly install resolved        'ordinalize',
+227 silly install resolved        'uncountable',
+227 silly install resolved        'pluralize',
+227 silly install resolved        'singularize',
+227 silly install resolved        'titleize',
+227 silly install resolved        'tableize',
+227 silly install resolved        'classify',
+227 silly install resolved        'foreign_key' ],
+227 silly install resolved     homepage: 'http://pksunkara.github.com/inflect',
+227 silly install resolved     scripts: { test: 'vows --spec $(find test -name \'*-test.js\')' },
+227 silly install resolved     contributors: [ [Object] ],
+227 silly install resolved     dependencies: {},
+227 silly install resolved     devDependencies: { vows: '0.7.0' },
+227 silly install resolved     engines: { node: '>=0.4' },
+227 silly install resolved     bugs: { url: 'https://github.com/pksunkara/inflect/issues' },
+227 silly install resolved     licenses: [ [Object] ],
+227 silly install resolved     gitHead: '355009895db1bd8dcceaa687b53fe085fc873b88',
+227 silly install resolved     _id: 'i@0.3.4',
+227 silly install resolved     _shasum: 'e1918d417b363a544e0e4a9b83c36dce1f85c91d',
+227 silly install resolved     _from: 'i@>=0.3.0 <0.4.0',
+227 silly install resolved     _npmVersion: '2.14.9',
+227 silly install resolved     _nodeVersion: '0.12.9',
+227 silly install resolved     _npmUser: { name: 'pksunkara', email: 'pavan.sss1991@gmail.com' },
+227 silly install resolved     maintainers: [ [Object] ],
+227 silly install resolved     dist:
+227 silly install resolved      { shasum: 'e1918d417b363a544e0e4a9b83c36dce1f85c91d',
+227 silly install resolved        tarball: 'http://registry.npmjs.org/i/-/i-0.3.4.tgz' },
+227 silly install resolved     directories: {},
+227 silly install resolved     _resolved: 'https://registry.npmjs.org/i/-/i-0.3.4.tgz',
+227 silly install resolved     readme: 'ERROR: No README data found!' },
+227 silly install resolved   { name: 'backoff',
+227 silly install resolved     description: 'Fibonacci and exponential backoffs.',
+227 silly install resolved     version: '2.0.0',
+227 silly install resolved     author: { name: 'Mathieu Turcotte', email: 'turcotte.mat@gmail.com' },
+227 silly install resolved     keywords: [ 'backoff', 'retry', 'fibonacci', 'exponential' ],
+227 silly install resolved     repository:
+227 silly install resolved      { type: 'git',
+227 silly install resolved        url: 'git+https://github.com/MathieuTurcotte/node-backoff.git' },
+227 silly install resolved     devDependencies: { sinon: '1.5.2', nodeunit: '0.7', jshint: '0.9.0' },
+227 silly install resolved     scripts:
+227 silly install resolved      { pretest: 'node_modules/jshint/bin/hint lib/ lib/ tests/ examples/ index.js',
+227 silly install resolved        test: 'node_modules/nodeunit/bin/nodeunit tests/' },
+227 silly install resolved     engines: { node: '>= 0.6' },
+227 silly install resolved     _id: 'backoff@2.0.0',
+227 silly install resolved     dist:
+227 silly install resolved      { shasum: 'b4394776f91c28a361049071dd891c00394fd805',
+227 silly install resolved        tarball: 'http://registry.npmjs.org/backoff/-/backoff-2.0.0.tgz' },
+227 silly install resolved     _npmVersion: '1.1.62',
+227 silly install resolved     _npmUser: { name: 'mathieu', email: 'turcotte.mat@gmail.com' },
+227 silly install resolved     maintainers: [ [Object] ],
+227 silly install resolved     directories: {},
+227 silly install resolved     _shasum: 'b4394776f91c28a361049071dd891c00394fd805',
+227 silly install resolved     _resolved: 'https://registry.npmjs.org/backoff/-/backoff-2.0.0.tgz',
+227 silly install resolved     _from: 'backoff@>=2.0.0 <2.1.0',
+227 silly install resolved     bugs: { url: 'https://github.com/MathieuTurcotte/node-backoff/issues' },
+227 silly install resolved     readme: 'ERROR: No README data found!',
+227 silly install resolved     homepage: 'https://github.com/MathieuTurcotte/node-backoff#readme' },
+227 silly install resolved   { name: 'format',
+227 silly install resolved     description: 'printf, sprintf, and vsprintf for JavaScript',
+227 silly install resolved     version: '0.1.4',
+227 silly install resolved     homepage: 'http://samhuri.net/proj/format',
+227 silly install resolved     author: { name: 'Sami Samhuri', email: 'sami@samhuri.net' },
+227 silly install resolved     repository: { type: 'git', url: 'git://github.com/samsonjs/format.git' },
+227 silly install resolved     bugs:
+227 silly install resolved      { url: 'https://github.com/samsonjs/format/issues',
+227 silly install resolved        email: 'sami@samhuri.net' },
+227 silly install resolved     directories: { lib: './lib' },
+227 silly install resolved     main: './lib/index',
+227 silly install resolved     engines: { node: '>=0.4.x' },
+227 silly install resolved     licenses: [ [Object] ],
+227 silly install resolved     dependencies: {},
+227 silly install resolved     devDependencies: {},
+227 silly install resolved     _npmUser: { name: 'sjs', email: 'sami@samhuri.net' },
+227 silly install resolved     _id: 'format@0.1.4',
+227 silly install resolved     _engineSupported: true,
+227 silly install resolved     _npmVersion: '1.0.104',
+227 silly install resolved     _nodeVersion: 'v0.6.0',
+227 silly install resolved     _defaultsLoaded: true,
+227 silly install resolved     dist:
+227 silly install resolved      { shasum: '848c3578a7e46635a7106d236aa7eaccff2c1358',
+227 silly install resolved        tarball: 'http://registry.npmjs.org/format/-/format-0.1.4.tgz' },
+227 silly install resolved     maintainers: [ [Object] ],
+227 silly install resolved     _shasum: '848c3578a7e46635a7106d236aa7eaccff2c1358',
+227 silly install resolved     _resolved: 'https://registry.npmjs.org/format/-/format-0.1.4.tgz',
+227 silly install resolved     _from: 'format@>=0.1.0 <0.2.0',
+227 silly install resolved     readme: 'ERROR: No README data found!' } ]
+228 info install bindings@1.1.1 into /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+229 info install i@0.3.4 into /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+230 info install backoff@2.0.0 into /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+231 info install format@0.1.4 into /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+232 info installOne bindings@1.1.1
+233 verbose installOne of bindings to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify not in flight; installing
+234 info installOne i@0.3.4
+235 verbose installOne of i to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify not in flight; installing
+236 info installOne backoff@2.0.0
+237 verbose installOne of backoff to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify not in flight; installing
+238 info installOne format@0.1.4
+239 verbose installOne of format to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify not in flight; installing
+240 verbose lock using /Users/danielyedidovich/.npm/_locks/bindings-780ccc7a3c335cf8.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+241 verbose lock using /Users/danielyedidovich/.npm/_locks/i-05f9071c4622d720.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+242 verbose lock using /Users/danielyedidovich/.npm/_locks/format-c5b98a8fdb3ad15b.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+243 silly install write writing bindings 1.1.1 to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+244 silly install write writing i 0.3.4 to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+245 verbose lock using /Users/danielyedidovich/.npm/_locks/backoff-ca015f0636cdc485.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+246 silly install write writing format 0.1.4 to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+247 silly install write writing backoff 2.0.0 to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+248 verbose unbuild node_modules/libspotify/node_modules/bindings
+249 verbose unbuild node_modules/libspotify/node_modules/i
+250 verbose unbuild node_modules/libspotify/node_modules/format
+251 verbose unbuild node_modules/libspotify/node_modules/backoff
+252 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings is being purged from base /Users/danielyedidovich/git/tallytune/Player
+253 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+254 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i is being purged from base /Users/danielyedidovich/git/tallytune/Player
+255 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+256 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format is being purged from base /Users/danielyedidovich/git/tallytune/Player
+257 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+258 verbose tar unpack /Users/danielyedidovich/.npm/bindings/1.1.1/package.tgz
+259 verbose tar unpacking to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+260 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings is being purged
+261 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+262 verbose tar unpack /Users/danielyedidovich/.npm/i/0.3.4/package.tgz
+263 verbose tar unpacking to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+264 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i is being purged
+265 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+266 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff is being purged from base /Users/danielyedidovich/git/tallytune/Player
+267 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+268 verbose tar unpack /Users/danielyedidovich/.npm/format/0.1.4/package.tgz
+269 verbose tar unpacking to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+270 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format is being purged
+271 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+272 silly gunzTarPerm modes [ '755', '644' ]
+273 silly gunzTarPerm modes [ '755', '644' ]
+274 verbose tar unpack /Users/danielyedidovich/.npm/backoff/2.0.0/package.tgz
+275 verbose tar unpacking to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+276 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff is being purged
+277 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+278 silly gunzTarPerm modes [ '755', '644' ]
+279 silly gunzTarPerm modes [ '755', '644' ]
+280 silly gunzTarPerm extractEntry package.json
+281 silly gunzTarPerm extractEntry package.json
+282 silly gunzTarPerm extractEntry format.tmproj
+283 silly gunzTarPerm extractEntry package.json
+284 silly gunzTarPerm extractEntry README.md
+285 silly gunzTarPerm extractEntry bindings.js
+286 silly gunzTarPerm extractEntry .npmignore
+287 silly gunzTarPerm extractEntry README.md
+288 silly gunzTarPerm extractEntry LICENSE
+289 silly gunzTarPerm extractEntry package.json
+290 silly gunzTarPerm extractEntry .npmignore
+291 silly gunzTarPerm extractEntry README.md
+292 silly gunzTarPerm extractEntry LICENSE
+293 silly gunzTarPerm extractEntry index.js
+294 silly gunzTarPerm extractEntry LICENSE
+295 silly gunzTarPerm extractEntry .travis.yml
+296 silly gunzTarPerm extractEntry Readme.md
+297 silly gunzTarPerm extractEntry test_format.js
+298 silly gunzTarPerm extractEntry lib/defaults.js
+299 silly gunzTarPerm extractEntry lib/inflect.js
+300 silly gunzTarPerm extractEntry .jshintrc
+301 silly gunzTarPerm extractEntry lib/index.js
+302 silly gunzTarPerm extractEntry lib/inflections.js
+303 silly gunzTarPerm extractEntry lib/methods.js
+304 silly gunzTarPerm extractEntry lib/native.js
+305 silly gunzTarPerm extractEntry lib/util.js
+306 silly gunzTarPerm extractEntry test/inflector/cases.js
+307 silly gunzTarPerm extractEntry test/inflector/inflections-test.js
+308 silly gunzTarPerm extractEntry test/inflector/methods-test.js
+309 silly gunzTarPerm extractEntry test/utils/array-test.js
+310 silly gunzTarPerm extractEntry test/utils/string-test.js
+311 silly gunzTarPerm extractEntry .travis.yml
+312 silly gunzTarPerm extractEntry examples/exponential.js
+313 verbose write writing to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings/package.json
+314 silly gunzTarPerm extractEntry examples/exponential_strategy.js
+315 silly gunzTarPerm extractEntry examples/fail.js
+316 info preinstall bindings@1.1.1
+317 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings/package.json
+318 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings/package.json
+319 silly gunzTarPerm extractEntry examples/fibonacci.js
+320 silly gunzTarPerm extractEntry examples/fibonacci_strategy.js
+321 silly install resolved []
+322 verbose about to build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+323 info build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+324 verbose write writing to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format/package.json
+325 info linkStuff bindings@1.1.1
+326 silly linkStuff bindings@1.1.1 has /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules as its parent node_modules
+327 info preinstall format@0.1.4
+328 verbose linkBins bindings@1.1.1
+329 verbose linkMans bindings@1.1.1
+330 verbose rebuildBundles bindings@1.1.1
+331 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format/package.json
+332 info install bindings@1.1.1
+333 info postinstall bindings@1.1.1
+334 silly gunzTarPerm extractEntry examples/function_call.js
+335 silly gunzTarPerm extractEntry examples/randomized.js
+336 verbose unlock done using /Users/danielyedidovich/.npm/_locks/bindings-780ccc7a3c335cf8.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/bindings
+337 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format/package.json
+338 silly gunzTarPerm extractEntry examples/readme.js
+339 silly gunzTarPerm extractEntry examples/reset.js
+340 silly install resolved []
+341 verbose about to build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+342 info build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+343 info linkStuff format@0.1.4
+344 silly linkStuff format@0.1.4 has /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules as its parent node_modules
+345 silly gunzTarPerm extractEntry lib/backoff.js
+346 silly gunzTarPerm extractEntry lib/function_call.js
+347 verbose linkBins format@0.1.4
+348 verbose linkMans format@0.1.4
+349 verbose rebuildBundles format@0.1.4
+350 info install format@0.1.4
+351 info postinstall format@0.1.4
+352 verbose unlock done using /Users/danielyedidovich/.npm/_locks/format-c5b98a8fdb3ad15b.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/format
+353 silly gunzTarPerm extractEntry lib/strategy/exponential.js
+354 silly gunzTarPerm extractEntry lib/strategy/fibonacci.js
+355 silly gunzTarPerm extractEntry lib/strategy/strategy.js
+356 silly gunzTarPerm extractEntry tests/api.js
+357 silly gunzTarPerm extractEntry tests/backoff.js
+358 silly gunzTarPerm extractEntry tests/backoff_strategy.js
+359 silly gunzTarPerm extractEntry tests/exponential_backoff_strategy.js
+360 silly gunzTarPerm extractEntry tests/fibonacci_backoff_strategy.js
+361 silly gunzTarPerm extractEntry tests/function_call.js
+362 verbose write writing to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i/package.json
+363 info preinstall i@0.3.4
+364 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i/package.json
+365 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i/package.json
+366 silly install resolved []
+367 verbose about to build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+368 info build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+369 info linkStuff i@0.3.4
+370 silly linkStuff i@0.3.4 has /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules as its parent node_modules
+371 verbose linkBins i@0.3.4
+372 verbose linkMans i@0.3.4
+373 verbose rebuildBundles i@0.3.4
+374 info install i@0.3.4
+375 info postinstall i@0.3.4
+376 verbose unlock done using /Users/danielyedidovich/.npm/_locks/i-05f9071c4622d720.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/i
+377 verbose write writing to /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff/package.json
+378 info preinstall backoff@2.0.0
+379 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff/package.json
+380 verbose readDependencies loading dependencies from /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff/package.json
+381 silly install resolved []
+382 verbose about to build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+383 info build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+384 info linkStuff backoff@2.0.0
+385 silly linkStuff backoff@2.0.0 has /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules as its parent node_modules
+386 verbose linkBins backoff@2.0.0
+387 verbose linkMans backoff@2.0.0
+388 verbose rebuildBundles backoff@2.0.0
+389 info install backoff@2.0.0
+390 info postinstall backoff@2.0.0
+391 verbose unlock done using /Users/danielyedidovich/.npm/_locks/backoff-ca015f0636cdc485.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify/node_modules/backoff
+392 verbose about to build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+393 info build /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+394 info linkStuff libspotify@0.2.2
+395 silly linkStuff libspotify@0.2.2 has /Users/danielyedidovich/git/tallytune/Player/node_modules as its parent node_modules
+396 verbose linkBins libspotify@0.2.2
+397 verbose linkMans libspotify@0.2.2
+398 verbose rebuildBundles libspotify@0.2.2
+399 verbose rebuildBundles [ 'backoff', 'bindings', 'format', 'i' ]
+400 info install libspotify@0.2.2
+401 verbose unsafe-perm in lifecycle false
+402 info libspotify@0.2.2 Failed to exec install script
+403 verbose unlock done using /Users/danielyedidovich/.npm/_locks/libspotify-e457c85bada4eac0.lock for /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+404 verbose stack Error: libspotify@0.2.2 install: `node-gyp configure build`
+404 verbose stack Exit status 1
+404 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+404 verbose stack     at EventEmitter.emit (events.js:110:17)
+404 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+404 verbose stack     at ChildProcess.emit (events.js:110:17)
+404 verbose stack     at maybeClose (child_process.js:1015:16)
+404 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+405 verbose pkgid libspotify@0.2.2
+406 verbose cwd /Users/danielyedidovich/git/tallytune/Player
+407 error Darwin 15.4.0
+408 error argv "node" "/usr/local/bin/npm" "install" "libspotify"
+409 error node v0.12.4
+410 error npm  v2.10.1
+411 error code ELIFECYCLE
+412 error libspotify@0.2.2 install: `node-gyp configure build`
+412 error Exit status 1
+413 error Failed at the libspotify@0.2.2 install script 'node-gyp configure build'.
+413 error This is most likely a problem with the libspotify package,
+413 error not with npm itself.
+413 error Tell the author that this fails on your system:
+413 error     node-gyp configure build
+413 error You can get their info via:
+413 error     npm owner ls libspotify
+413 error There is likely additional logging output above.
+414 verbose exit [ 1, true ]
+415 verbose unbuild node_modules/libspotify
+416 info preuninstall libspotify@0.2.2
+417 info uninstall libspotify@0.2.2
+418 verbose unbuild rmStuff libspotify@0.2.2 from /Users/danielyedidovich/git/tallytune/Player/node_modules
+419 info postuninstall libspotify@0.2.2
+420 silly gentlyRm /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify is being purged from base /Users/danielyedidovich/git/tallytune/Player
+421 verbose gentlyRm don't care about contents; nuking /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+422 silly vacuum-fs purging /Users/danielyedidovich/git/tallytune/Player/node_modules/libspotify
+423 silly vacuum-fs quitting because other entries in /Users/danielyedidovich/git/tallytune/Player/node_modules

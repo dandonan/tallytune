@@ -6,20 +6,19 @@ function users(Public, Private) {
     this.Private = Private;
 }
 
-/*var resumeFunction = spotify.useNodjsAudio(handleAudio);
-function handleAudio(err, buffer) {
-  if(err) throw err;
-  var needMoreData = true;
-  // write buffer somewhere, set needMoreData
-  // if necessary call resumeFunction();
-  return needMoreData;
-}*/
+var options = {
+    settingsFolder: 'settings',
+    cacheFolder: 'cache',
+    traceFile: 'trace.txt', //default is empty,
+    appkeyFile: 'spotify_appkey.key' //required
+}
+
+var spotify = require('spotify')(options);
 
 //First you need to craete a connection to the database
 var con = mysql.createConnection({
     host: "localhost",
-    user: "tesla",
-    password: "tesla",
+    user: "root",
     database: "tallyData"
 });
 
@@ -40,52 +39,19 @@ con.query('select * from partyData',function(err,rows){
 
 
 
-/*con.end(function(err){
+con.end(function(err){
     //The connection is terminated gracefully
     //Ensures all previously enqueued quereis are still
     //before sending a COM_QUIT packed to the MySql server.
-});*/
-
-/*var options = {
-    settingsFolder: 'settings',
-    cacheFolder: 'cache',
-    traceFile: 'trace.txt' //default is empty,
-    appkeyFile: 'spotify_appkey.key' //required
-}*/
-
-//var spotify = require('spotify')(options);
-/*
-playlist.on({
-    playlistRenamed: function(err, playlist),
-    tracksAdded: function(err, playlist, track[], position),
-    tracksMoved: function(err, playlist, trackIndices[], newPosition),
-    tracksRemoved: function(err, playlist, trackIndices[]),
-    trackCreatedChanged: function(err, playlist, position, user, date),
-    trackSeenChanged: function(err, playlist, position, seen),
-    trackMessageChanged: function(err, playlist, position, message)
 });
 
-playlistContainer.on({
-    playlistAdded: function(err, newPlaylist, position),
-    playlistMoved: function(err, position, newPosition),
-    playlistRemoved: function(err, position)
-});
+console.log(spotify.remeberedUser);
 
-spotify.on({
-    ready: function(),
-    metadataUpdated: function(),
-    logout: function()
-});
+spotify.login('danyedidovich','Don@n7477', true, true);
 
-spotify.player.on({
-    endOfTrack: function()
-});*/
+//spotify.login('danyedidovich','Don@n7477', true, true);
 
-/*console.log(spotify.remeberedUser);
-
-spotify.login('myusername','mypassword', true, false);
-
-//playlistContainer RootList;
+console.log(spotify.playlistContainer);
 //user sessionUser;
 
 function printTrack(track) {
@@ -100,8 +66,8 @@ function waitForTrack(playlist) {
     spotify.waitForLoaded([track], printTrack);
 }
 //initalize the first playlist in the host's library to be the playlist played
-var playlist = spotify.playlistContainer.getPlaylists()[1];
-spotify.waitForLoaded([playlist], waitForTrack);
+//var playlist = spotify.playlistContainer.getPlaylists()[1];
+//spotify.waitForLoaded([playlist], waitForTrack);
 
 function makePid()
 {
