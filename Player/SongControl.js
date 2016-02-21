@@ -13,7 +13,7 @@ var options = {
     appkeyFile: 'spotify_appkey.key' //required
 }
 
-var spotify = require('spotify')(options);
+var spotify = require('node-spotify')({appkeyFile:'spotify_appkey.key'});
 
 //First you need to craete a connection to the database
 var con = mysql.createConnection({
