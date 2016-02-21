@@ -26,18 +26,13 @@ con.connect(function(err) {
     console.log('Connection to the database established');
 });
 
-con.query('select * from partyData',function(err,rows){
+con.query('select * from userData',function(err,rows){
     if (err) throw err;
 
-    console.log('Data received from Db:\n');
-    console.log(rows);
+    //console.log('Data received from Db:\n');
+    //console.log(rows);
 });
 
-con.end(function(err){
-    //The connection is terminated gracefully
-    //Ensures all previously enqueued quereis are still
-    //before sending a COM_QUIT packed to the MySql server.
-});
 
 //songData();
 
@@ -56,21 +51,23 @@ end getCurrentlyPlayingTrack
 var CurrentParty;
 
 function skipNeed(){
-	var partyID = CurrentParty;
-	var attendance = con.query("select userData.partyID from userData where userData.partyID = " + partyID,function(err,rows){
+	var partyID = "888888";
+	var sheeple = con.query("select userData.partyID from userData where userData.partyID = " + partyID,function(err,rows){
 		if (err) throw err;
-		return rows;
+		console.log(rows.length);
+		return rows.length;
 	});
-	var sheeple = attendance.length;
+	//var sheeple = attendance.length;
 	var voteNeed = sheeple/2 + 1;
 	return voteNeed;
 };
+skipNeed();
 
 function skipCheck(voteNeed){
 	var partyID = CurrentParty;
 	var wantSkip = con.query("select userData.partyID,userData.wantSkip from userData where userData.partyID = " + partyID + "and userData.wantSkip = true",function(err,rows){
 		if (err) throw err;
-		return rows;
+		return rows.length;
 	});
 	if(wantSkip > voteNeed) skipper();
 };
@@ -164,13 +161,11 @@ function userId(){
     return text;
 }
 
-function publicId(){
+/*function publicId(){
     var PubName = //input from website
     var User = new users(PubName, userId());
 
-}
-
-songData();
+}*/
 
 /*applescript.execString(script, function(err, rtn) {
 	if (err) {
@@ -182,3 +177,8 @@ songData();
 		});
 	}
 });*/
+con.end(function(err){
+    //The connection is terminated gracefully
+    //Ensures all previously enqueued quereis are still
+    //before sending a COM_QUIT packed to the MySql server.
+});
