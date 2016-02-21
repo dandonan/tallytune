@@ -34,7 +34,7 @@ con.end(function(err){
     //before sending a COM_QUIT packed to the MySql server.
 });
 
-songData();
+//songData();
 
 /*set currentlyPlayingTrack to getCurrentlyPlayingTrack()
 displayTrackName(currentlyPlayingTrack)
@@ -52,6 +52,7 @@ end getCurrentlyPlayingTrack
 //function skipChecker
 //function skipper
 function songData(){
+	var SongInfo = "";
 	var script1 = heredoc(function(){/*
 		tell application "Spotify"
 			set currentTrack to name of current track as string
@@ -64,12 +65,13 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn1);
+	SongInfo += rtn1;
 	});
 
 	var script2 = heredoc(function(){/*
 		tell application "Spotify"
-			set currentTrack to artist of current track as string
-			return currentTrack
+			set currentTrack2 to artist of current track as string
+			return currentTrack2
 		end tell
 	*/});
 
@@ -78,12 +80,13 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn2);
+	SongInfo += rtn2;
 	});
 
 	var script3 = heredoc(function(){/*
 		tell application "Spotify"
-			set currentTrack to album of current track as string
-			return currentTrack
+			set currentTrack3 to album of current track as string
+			return currentTrack3
 		end tell
 	*/});
 
@@ -92,23 +95,25 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn3);
+	SongInfo += rtn3;
 	});
 
-	var script4 = heredoc(function(){/*
+	console.log(SongInfo);
+	/*var script4 = heredoc(function(){/*
 		tell application "Spotify"
-			set currentTrack to artwork of current track as string
-			return currentTrack
+			set currentTrack4 to artwork of current track as image
+			return currentTrack4
 		end tell
-	*/});
+	*//*});
 
 	applescript.execString(script4, function(err4, rtn4) {
 	if (err4) {
 		//Something went wrong
 	}
-	console.log(rtn4);
+	console.log(rtn4);*/
 
-	var SongInfo = rtn1 + rtn2 + rtn3 + rtn4;
-	});
+	//var SongInfo = rtn1 + rtn2 + rtn3 + rtn4;
+	//var SongInfo = rtn1 + rtn2 + rtn3;
 };
 //function startPlaylist
 //function userId
