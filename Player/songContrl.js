@@ -1,6 +1,7 @@
 var applescript = require('applescript')
 var mysql = require("mysql");
 var express = require("express");
+var async = require("async");
 var app = express();
 
 app.engine('html', require('ejs').renderFile);
@@ -10,13 +11,20 @@ app.get('/', function(req, res) {
      res.render('Home2.html');
 });
 
+
+app.get('/party', function(req, res) {
+     res.render('JoinParty.html');
+});
+
 app.get('/join', function(req, res) {
 	res.redirect('/rooms/'+ req.query.roomcode);
 });
 
 app.get('/rooms/*', function(req, res) {
-	var data = songData();
-	res.render('VoteToSkip.html', {album: data.album, artist: data.artist, song: data.song});
+	songData(function (data) {
+		console.log(data);
+		res.render('VoteToSkip.html', {album: data.album, artist: data.artist, song: data.song});
+	});
 });
 
 app.listen(3000, function () {
@@ -86,55 +94,66 @@ function skipper(){
 	*/})
 }
 
-function songData(){
+function songData(cb){
 	var SongInfo = {};
-	var trackNameScript = heredoc(function(){/*
-		tell application "Spotify"
-			set currentTrack to name of current track as string
-			return currentTrack
-		end tell
-	*/});
+	async.parallel([
+		function (hollaback) {
+			var trackNameScript = heredoc(function(){/*
+				tell application "Spotify"
+					set currentTrack to name of current track as string
+					return currentTrack
+				end tell
+			*/});
 
-	applescript.execString(trackNameScript, function(err, rtn) {
-		if (err) {
-			//Something went wrong
-		}
-		console.log(rtn);
-		SongInfo.name = rtn;
-	});
+			applescript.execString(trackNameScript, function(err, rtn) {
+				if (err) {
+					//Something went wrong
+				}
+				console.log(rtn);
+				SongInfo.song = rtn;
+				hollaback();
+			});
+		},
+		function (hollaback) {
 
-	var trackArtistScript = heredoc(function(){/*
-		tell application "Spotify"
-			set currentTrack2 to artist of current track as string
-			return currentTrack2
-		end tell
-	*/});
+			var trackArtistScript = heredoc(function(){/*
+				tell application "Spotify"
+					set currentTrack2 to artist of current track as string
+					return currentTrack2
+				end tell
+			*/});
 
-	applescript.execString(trackArtistScript, function(err, rtn) {
-		if (err) {
-			//Something went wrong
-		}
-		console.log(rtn);
-		SongInfo.artist = rtn;
-	});
+			applescript.execString(trackArtistScript, function(err, rtn) {
+				if (err) {
+					//Something went wrong
+				}
+				console.log(rtn);
+				SongInfo.artist = rtn;
+				hollaback();
+			});
+		},
+		function (hollaback) {
 
-	var trackAlbumScript = heredoc(function(){/*
-		tell application "Spotify"
-			set currentTrack3 to album of current track as string
-			return currentTrack3
-		end tell
-	*/});
+			var trackAlbumScript = heredoc(function(){/*
+				tell application "Spotify"
+					set currentTrack3 to album of current track as string
+					return currentTrack3
+				end tell
+			*/});
 
-	applescript.execString(trackAlbumScript, function(err, rtn) {
-		if (err3) {
-			//Something went wrong
-		}
-		console.log(rtn);
-		SongInfo.album = rtn;
-	});
-
-	console.log(SongInfo);
-	return SongInfo;
+			applescript.execString(trackAlbumScript, function(err, rtn) {
+				if (err) {
+					//Something went wrong
+				}
+				console.log(rtn);
+				SongInfo.album = rtn;
+				hollaback();
+			});
+		}],
+		function () {
+			console.log(SongInfo);
+			cb(SongInfo);
+		});
 };
 
 //function pushToSite

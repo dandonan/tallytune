@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^1.5.2",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "node-spotify": "/Users/danielyedidovich/Downloads/node-spotify-0.7.0-OSX",
