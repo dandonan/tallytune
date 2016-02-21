@@ -3,6 +3,10 @@ var mysql = require("mysql");
 
 //var script = 'tell application "Spotify" to play track "blah"';
 
+function heredoc (f) {
+    return f.toString().match(/\/\*\s*([\s\S]*?)\s*\*\//m)[1];
+};
+
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -48,12 +52,12 @@ end getCurrentlyPlayingTrack
 //function skipChecker
 //function skipper
 function songData(){
-	var script = 'on getCurrentlyPlayingTrack() \
-	tell application "Spotify"\
-	set currentTrack to name of current track as String\
-	return currentTrack\
-	end tell\
-	end get currentlyPlayingTrack';
+	var script = heredoc(function(){/*
+		tell application "Spotify"
+			set currentTrack to name of current track as string
+			return currentTrack
+		end tell
+	*/});
 
 	applescript.execString(script, function(err, rtn) {
 	if (err) {
@@ -69,15 +73,4 @@ function songData(){
 //function pushToSite
 //fucntion pullFromSite
 
-
-
-applescript.execString(script, function(err, rtn) {
-	if (err) {
-		//Something went wrong
-	}
-	if (Array.isArray(rtn)) {
-		rtn.forEach(function(songName){
-			console.log(songName);
-		});
-	}
-});
+songData();
