@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>TALLYTUNE</title>
-    <link href= "joinparty.css" rel="stylesheet">
+    <link href= "/joinparty.css" rel="stylesheet">
 </head>
 <body>
 	<div id="page">
@@ -14,11 +14,13 @@
 
 					<h1>TallyTune</h1>
 
-					 <input type="text" name="Username" id="inputNameBox" value="" class="resizedTextbox" placeholder="Username" type="submit"/>
+					<form method="GET" action="/join">
+					 <input type="text" name="username" id="inputNameBox" value="" class="resizedTextbox" placeholder="Username" type="submit"/>
 
-           			<input type="text" name="Room Code" id="inputCodeBox" value="" class="resizedTextbox" placeholder="Room Code" type="submit"/>
+           			<input type="text" name="roomcode" id="inputCodeBox" value="" class="resizedTextbox" placeholder="Room Code" type="submit"/>
 
-           			<a href='VoteToSkip.html' class='button'>Join Now!</a>
+           			<button type="submit" class="button">Join Now!</button>
+           			</form>
 
            			<div id="video">
 					<video src="http://static.videezy.com/system/resources/previews/000/002/654/original/mixing-on-sound-board.mp4" autoplay loop></video>

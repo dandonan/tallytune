@@ -1,10 +1,30 @@
 var applescript = require('applescript')
 var mysql = require("mysql");
+var express = require("express");
+var app = express();
 
-//var script = 'tell application "Spotify" to play track "blah"';
+app.engine('html', require('ejs').renderFile);
+app.use(express.static('public')); 
 
-function users(Public, Private) {
-    this.Public = Public;
+app.get('/', function(req, res) {
+     res.render('Home2.html');
+});
+
+app.get('/join', function(req, res) {
+	res.redirect('/rooms/'+ req.query.roomcode);
+});
+
+app.get('/rooms/*', function(req, res) {
+	var data = songData();
+	res.render('VoteToSkip.html', {album: data.album, artist: data.artist, song: data.song});
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+
+function users(PublicName, Private) {
+    this.PublicName = PublicName;
     this.Private = Private;
 }
 
@@ -34,20 +54,6 @@ con.query('select * from userData',function(err,rows){
 });
 
 
-//songData();
-
-/*set currentlyPlayingTrack to getCurrentlyPlayingTrack()
-displayTrackName(currentlyPlayingTrack)
-
-on getCurrentlyPlayingTrack()
-	tell application "Spotify"
-	set currentArtist to artist of current track as String
-	set currentTrack to name of current track as String
-
-	return currentArtist & " - " currentTrack
-	end tell
-end getCurrentlyPlayingTrack
-*/
 var CurrentParty;
 
 function skipNeed(){
@@ -81,50 +87,50 @@ function skipper(){
 }
 
 function songData(){
-	var SongInfo = "";
-	var script1 = heredoc(function(){/*
+	var SongInfo = {};
+	var trackNameScript = heredoc(function(){/*
 		tell application "Spotify"
 			set currentTrack to name of current track as string
 			return currentTrack
 		end tell
 	*/});
 
-	applescript.execString(script1, function(err1, rtn1) {
-	if (err1) {
-		//Something went wrong
-	}
-	console.log(rtn1);
-	SongInfo += rtn1;
+	applescript.execString(trackNameScript, function(err, rtn) {
+		if (err) {
+			//Something went wrong
+		}
+		console.log(rtn);
+		SongInfo.name = rtn;
 	});
 
-	var script2 = heredoc(function(){/*
+	var trackArtistScript = heredoc(function(){/*
 		tell application "Spotify"
 			set currentTrack2 to artist of current track as string
 			return currentTrack2
 		end tell
 	*/});
 
-	applescript.execString(script2, function(err2, rtn2) {
-	if (err2) {
-		//Something went wrong
-	}
-	console.log(rtn2);
-	SongInfo += rtn2;
+	applescript.execString(trackArtistScript, function(err, rtn) {
+		if (err) {
+			//Something went wrong
+		}
+		console.log(rtn);
+		SongInfo.artist = rtn;
 	});
 
-	var script3 = heredoc(function(){/*
+	var trackAlbumScript = heredoc(function(){/*
 		tell application "Spotify"
 			set currentTrack3 to album of current track as string
 			return currentTrack3
 		end tell
 	*/});
 
-	applescript.execString(script3, function(err3, rtn3) {
-	if (err3) {
-		//Something went wrong
-	}
-	console.log(rtn3);
-	SongInfo += rtn3;
+	applescript.execString(trackAlbumScript, function(err, rtn) {
+		if (err3) {
+			//Something went wrong
+		}
+		console.log(rtn);
+		SongInfo.album = rtn;
 	});
 
 	console.log(SongInfo);
