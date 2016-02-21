@@ -3,6 +3,11 @@ var mysql = require("mysql");
 
 //var script = 'tell application "Spotify" to play track "blah"';
 
+function users(Public, Private) {
+    this.Public = Public;
+    this.Private = Private;
+}
+
 function heredoc (f) {
     return f.toString().match(/\/\*\s*([\s\S]*?)\s*\*\//m)[1];
 };
@@ -99,28 +104,43 @@ function songData(){
 	});
 
 	console.log(SongInfo);
-	/*var script4 = heredoc(function(){/*
-		tell application "Spotify"
-			set currentTrack4 to artwork of current track as image
-			return currentTrack4
-		end tell
-	*//*});
-
-	applescript.execString(script4, function(err4, rtn4) {
-	if (err4) {
-		//Something went wrong
-	}
-	console.log(rtn4);*/
-
-	//var SongInfo = rtn1 + rtn2 + rtn3 + rtn4;
-	//var SongInfo = rtn1 + rtn2 + rtn3;
+	return SongInfo;
 };
-//function startPlaylist
-//function userId
-//function publicId
-//function user
+
 //function pushToSite
 //fucntion pullFromSite
+
+function HostNew(){
+    var id = makePid();
+ 	//add inital play functionality
+}
+
+function makePid()
+{
+	var text = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	
+	for(var i = 0; i < 6; i++){
+		text += possible.charAt(Math.floor(Math.random() * possilbe.length));
+	}
+	return text;
+}
+
+function userId(){
+    var text = ""
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for(var i = 0; i < 10; i++){
+        text += possible.charAt(Math.floor(Math.random() * possilbe.length));
+    }
+    return text;
+}
+
+function publicId(){
+    var PubName = //input from website
+    var User = new users(PubName, userId());
+
+}
 
 songData();
 
