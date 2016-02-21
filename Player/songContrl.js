@@ -52,18 +52,60 @@ end getCurrentlyPlayingTrack
 //function skipChecker
 //function skipper
 function songData(){
-	var script = heredoc(function(){/*
+	var script1 = heredoc(function(){/*
 		tell application "Spotify"
 			set currentTrack to name of current track as string
 			return currentTrack
 		end tell
 	*/});
 
-	applescript.execString(script, function(err, rtn) {
-	if (err) {
+	applescript.execString(script1, function(err1, rtn1) {
+	if (err1) {
 		//Something went wrong
 	}
-	console.log(rtn);
+	console.log(rtn1);
+
+	var script2 = heredoc(function(){/*
+		tell application "Spotify"
+			set currentTrack to artist of current track as string
+			return currentTrack
+		end tell
+	*/});
+
+	applescript.execString(script2, function(err2, rtn2) {
+	if (err2) {
+		//Something went wrong
+	}
+	console.log(rtn2);
+
+	var script3 = heredoc(function(){/*
+		tell application "Spotify"
+			set currentTrack to album of current track as string
+			return currentTrack
+		end tell
+	*/});
+
+	applescript.execString(script3, function(err3, rtn3) {
+	if (err3) {
+		//Something went wrong
+	}
+	console.log(rtn3);
+
+
+	var script4 = heredoc(function(){/*
+		tell application "Spotify"
+			set currentTrack to artwork of current track as string
+			return currentTrack
+		end tell
+	*/});
+
+	applescript.execString(script4, function(err4, rtn4) {
+	if (err4) {
+		//Something went wrong
+	}
+	console.log(rtn4);
+
+	var SongInfo = rtn1 + rtn2 + rtn3 + rtn4;
 });
 };
 //function startPlaylist
@@ -74,3 +116,14 @@ function songData(){
 //fucntion pullFromSite
 
 songData();
+
+/*applescript.execString(script, function(err, rtn) {
+	if (err) {
+		//Something went wrong
+	}
+	if (Array.isArray(rtn)) {
+		rtn.forEach(function(songName){
+			console.log(songName);
+		});
+	}
+});*/
