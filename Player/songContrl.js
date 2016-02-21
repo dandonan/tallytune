@@ -64,7 +64,7 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn1);
-)};
+	});
 
 	var script2 = heredoc(function(){/*
 		tell application "Spotify"
@@ -78,7 +78,7 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn2);
-)};
+	});
 
 	var script3 = heredoc(function(){/*
 		tell application "Spotify"
@@ -92,7 +92,7 @@ function songData(){
 		//Something went wrong
 	}
 	console.log(rtn3);
-)};
+	});
 
 	var script4 = heredoc(function(){/*
 		tell application "Spotify"
@@ -108,7 +108,7 @@ function songData(){
 	console.log(rtn4);
 
 	var SongInfo = rtn1 + rtn2 + rtn3 + rtn4;
-});
+	});
 };
 //function startPlaylist
 //function userId
